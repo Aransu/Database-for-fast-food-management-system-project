@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER CHECK_QUAN_LY 
+BEFORE INSERT OR UPDATE ON NHAN_VIEN 
+FOR EACH ROW
+DECLARE
+  cnt NUMBER;
+BEGIN 
+  SELECT COUNT(*) INTO cnt FROM NHAN_VIEN WHERE ID = :NEW.ID_QUAN_LY;
+  IF(cnt = 0) THEN
+    RAISE_APPLICATION_ERROR(-20000,'Nhan vien quan ly phai la 1 nhan vien (id cua nhan vien quan ly phai nam trong id cua nhan vien)');
+  END IF;
+END;
