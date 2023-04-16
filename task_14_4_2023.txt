@@ -1,0 +1,16 @@
+Procedure:
++ Thêm, sửa, xóa món ăn
++ Thêm, sửa, xóa nhân viên
++ lấy ra món ăn có thể nấu dựa vào số lượng nguyên liệu trong kho
+
+Function:
++ Báo cáo thu nhập ngày, tháng
++ (nếu có idea gì hay thêm vào đây nhé)
++ Lấy ra số bàn chưa được đặt 
+
+Trigger:
++ check constraint, số bàn trong quán là 30 (between)
++ kiểm tra số lượng tồn kho nguyên liệu
++ 
+
+DEADLINE: 19h/18/4/2023
