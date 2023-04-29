@@ -72,3 +72,18 @@ BEGIN
     RAISE_APPLICATION_ERROR(-20000,'Hien quan da het ban xin quy khach vui long doi den khi co ban trong');
     END IF;
 END;
+
+
+CREATE OR REPLACE TRIGGER CHECK_DANG_QUAN_LY
+BEFORE DELETE ON NHAN_VIEN
+FOR EACH ROW
+DECLARE 
+TOTAL INT:=0;
+BEGIN
+    IF:OLD.CHUC_VU='Quản lý' THEN
+    SELECT COUNT(*) INTO TOTAL FROM NHAN_VIEN WHERE id_quan_ly=:OLD.id;
+    IF TOTAL > 0 THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Không thể xóa quản lý đang quản lý nhân viên!');
+    END IF;
+  END IF;
+END;
