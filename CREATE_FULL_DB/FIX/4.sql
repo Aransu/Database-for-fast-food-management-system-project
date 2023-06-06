@@ -1,0 +1,21 @@
+CREATE OR REPLACE VIEW XU_LY_DON_HANG AS
+    SELECT
+        DON_HANG.ID,
+        DON_HANG.ID_KH             AS ID_KH,
+        KHACH_HANG.TEN             AS TEN_KH,
+        DON_HANG.ID_THU_NGAN       AS ID_TN,
+        NHAN_VIEN.TEN              AS TEN_TN,
+        DON_HANG.SO_BAN_TAO_DON,
+        DON_HANG.TONG_TIEN,
+        DON_HANG.HINH_THUC_THANH_TOAN,
+        DON_HANG.TRANG_THAI,
+        DON_HANG.DAT_ONLINE,
+        DON_HANG.NGAY_DAT,
+        DON_HANG.GHI_CHU
+    FROM
+        DON_HANG
+        LEFT JOIN KHACH_HANG
+        ON DON_HANG.ID_KH = KHACH_HANG.ID LEFT JOIN NHAN_VIEN
+        ON DON_HANG.ID_THU_NGAN = NHAN_VIEN.ID
+
+        select *from XU_LY_DON_HANG
