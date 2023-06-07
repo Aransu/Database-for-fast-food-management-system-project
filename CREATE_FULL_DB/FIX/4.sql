@@ -16,6 +16,45 @@ CREATE OR REPLACE VIEW XU_LY_DON_HANG AS
         DON_HANG
         LEFT JOIN KHACH_HANG
         ON DON_HANG.ID_KH = KHACH_HANG.ID LEFT JOIN NHAN_VIEN
-        ON DON_HANG.ID_THU_NGAN = NHAN_VIEN.ID
+        ON DON_HANG.ID_THU_NGAN = NHAN_VIEN.ID;
 
-        select *from XU_LY_DON_HANG
+
+CREATE OR REPLACE VIEW VIEW_AVALAIBLE_FOOD AS
+    SELECT
+        *
+    FROM
+        MON_AN MA,
+        (
+            SELECT
+                ID1
+            FROM
+                (
+                    SELECT
+                        ID_MON        AS ID1,
+                        COUNT(ID_MON) AS SL1
+                    FROM
+                        NGUYEN_LIEU_MON_AN
+                        LEFT JOIN NGUYEN_LIEU
+                        ON NGUYEN_LIEU_MON_AN.ID_NL = NGUYEN_LIEU.ID
+                        AND NGUYEN_LIEU_MON_AN.SO_LUONG <= NGUYEN_LIEU.SO_LUONG_TRONG_KHO
+                    WHERE
+                        NGUYEN_LIEU.TEN IS NOT NULL
+                    GROUP BY
+                        ID_MON
+                ) X1,
+                (
+                    SELECT
+                        ID_MON        AS ID2,
+                        COUNT(ID_MON) AS SL2
+                    FROM
+                        NGUYEN_LIEU_MON_AN
+                    GROUP BY
+                        NGUYEN_LIEU_MON_AN.ID_MON
+                ) X2
+            WHERE
+                X1.SL1 = X2.SL2
+                AND X1.ID1 = X2.ID2
+        )      X
+    WHERE
+        X.ID1 = MA.ID;
+
