@@ -200,6 +200,23 @@ INSERT INTO NHAN_VIEN (
  INSERT INTO TAIKHOAN_NV (USERNAME, PASSWORD, ID_NV)
     VALUES ('thib', 123, 2);
 
+INSERT INTO NHANVIEN_LAMVIEC (
+    ID,
+    ID_NHANVIEN,
+    THOIGIAN_BATDAU,
+    THOIGIAN_KETTHUC,
+    TONG_THOIGIAN
+)
+SELECT
+    ROWNUM,
+    NV.ID,
+    TRUNC(SYSDATE) - (ROWNUM * 3),
+    TRUNC(SYSDATE) - (ROWNUM * 3) + 7,
+    56
+FROM
+    NHAN_VIEN NV
+WHERE
+    ROWNUM <= 30;
 
 
 --------------------------------------------------------------------------------
