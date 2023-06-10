@@ -24,6 +24,27 @@ VALUES (4, 'Hành tây', 'Củ', 20, 20000);
 
 INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
 VALUES (5, 'Bột mỳ', 'Gói', 100, 5000);
+
+
+   INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
+   VALUES (7, 'Thịt bò', 'Kg', 50, 150000);
+
+   INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
+   VALUES (8, 'Bánh mì', 'Cái', 100, 10000);
+
+   INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
+   VALUES (9, 'Rau xà lách', 'Cái', 30, 5000);
+
+   INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
+   VALUES (10, 'Cà chua', 'Quả', 40, 3000);
+
+   INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
+   VALUES (11, 'Hành tây', 'Quả', 20, 2000);
+
+
+
+
+
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -260,6 +281,19 @@ VALUES (4, 3, 3);
 
 INSERT INTO NGUYEN_LIEU_MON_AN (ID_NL, ID_MON, SO_LUONG)
 VALUES (5, 3, 2);
+
+INSERT INTO NGUYEN_LIEU_MON_AN (ID_NL, ID_MON, SO_LUONG)
+VALUES (7, 1, 1);
+
+INSERT INTO NGUYEN_LIEU_MON_AN (ID_NL, ID_MON, SO_LUONG)
+VALUES (8, 1, 2);
+
+INSERT INTO NGUYEN_LIEU_MON_AN (ID_NL, ID_MON, SO_LUONG)
+VALUES (9, 1, 1);
+
+INSERT INTO NGUYEN_LIEU_MON_AN (ID_NL, ID_MON, SO_LUONG)
+VALUES (10, 1, 3);
+
 
 
 -- Nhà cung cấp thịt bò XYZ cung cấp Thịt bò
