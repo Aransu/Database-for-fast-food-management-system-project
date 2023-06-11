@@ -11,19 +11,19 @@ VALUES (2, '0123456789', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 'Tran Thi B');
 
 --------------------------------------------------------------------------------
 INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
-VALUES (1, 'Thịt bò', 'Kg', 50, 100000);
+VALUES (1, 'Thịt bò', 'Kg', 50, 5);
 
 INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
-VALUES (2, 'Gà', 'Kg', 30, 80000);
+VALUES (2, 'Gà', 'Kg', 30, 4);
 
 INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
-VALUES (3, 'Tôm', 'Kg', 40, 120000);
+VALUES (3, 'Tôm', 'Kg', 40, 6);
 
 INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
-VALUES (4, 'Hành tây', 'Củ', 20, 20000);
+VALUES (4, 'Hành tây', 'Củ', 20, 1);
 
 INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
-VALUES (5, 'Bột mỳ', 'Gói', 100, 5000);
+VALUES (5, 'Bột mỳ', 'Gói', 100, 1);
 
 
    INSERT INTO NGUYEN_LIEU (ID, TEN, DON_VI, SO_LUONG_TRONG_KHO, GIA_NL)
