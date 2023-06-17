@@ -79,3 +79,35 @@ BEGIN
     :NEW.TONG_THOIGIAN := 24*(:NEW.THOIGIAN_KETTHUC - :NEW.THOIGIAN_BATDAU);  
 END;  
 /  
+----- trigger tính tổng tiền của bill dựa vào chi tiết hóa đơn
+CREATE OR REPLACE TRIGGER TRG_TONG_TIEN
+FOR INSERT OR UPDATE OR DELETE ON CHITIET_DON
+COMPOUND TRIGGER
+
+    v_affected_id number;
+    AFTER EACH ROW IS
+    BEGIN
+        IF INSERTING OR UPDATING THEN
+            v_affected_id := :NEW.id_don;
+        ELSE
+            v_affected_id := :OLD.id_don;
+        END IF;
+    END AFTER EACH ROW;
+
+    AFTER STATEMENT IS
+        v_total NUMBER(38,0);
+    BEGIN
+            SELECT NVL(SUM(SOLUONG * GIA),0)
+            INTO v_total
+            FROM CHITIET_DON CD
+            JOIN MON_AN MA ON CD.ID_MON = MA.ID
+            WHERE CD.ID_DON = v_affected_id;
+
+            -- Cập nhật tổng tiền trong bảng DON_HANG
+            UPDATE DON_HANG
+            SET TONG_TIEN = v_total
+            WHERE ID = v_affected_id;
+
+    END AFTER STATEMENT;
+
+END TRG_TONG_TIEN;
